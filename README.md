@@ -2,6 +2,8 @@
 
 NEXORA is a full-stack study workspace for organizing tasks, keeping private class notes, discovering learning resources, and protecting focused time. The existing Vite starter in `client/` has been extended into a React + TypeScript application, backed by an Express API and Supabase PostgreSQL.
 
+Demo : https://nexora-alpha-ashen-43.vercel.app?utm_source=chatgpt.com
+
 > **Database/auth assignment substitution:** The assignment describes MongoDB/Mongoose and bcrypt. This project intentionally uses **Supabase PostgreSQL and Supabase Auth** instead. Passwords are handled by Supabase Auth; they are never stored in NEXORA tables. No MongoDB, Mongoose, or bcrypt implementation is claimed.
 
 ## Features
