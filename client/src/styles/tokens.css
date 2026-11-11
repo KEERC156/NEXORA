@@ -1,0 +1,15 @@
+:root {
+  --bg: #0d0e18;
+  --panel: #151624;
+  --panel-soft: #191a2d;
+  --line: #28293b;
+  --muted: #999bad;
+  --dim: #6d7087;
+  --violet: #9985ff;
+  --violet-bright: #a99aff;
+  --cyan: #6ed4df;
+  --green: #73d8a6;
+  --red: #ff8b96;
+  --amber: #f3c477;
+  --heading: 'Manrope', sans-serif;
+}

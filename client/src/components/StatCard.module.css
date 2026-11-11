@@ -1,0 +1,7 @@
+.card{position:relative;min-width:0;padding:20px 21px 19px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(145deg,rgba(23,25,43,.9),rgba(17,19,33,.88));box-shadow:0 12px 30px rgba(0,0,0,.14);transition:transform .2s,border-color .2s}
+.card:hover{transform:translateY(-2px);border-color:#3a3b58}
+.icon{width:37px;height:37px;border-radius:11px;display:grid;place-items:center;margin-bottom:17px}
+.violet{color:#b6a7ff;background:#6c58d92a}.cyan{color:#71dfeb;background:#3cbccc21}.green{color:#7fe0b0;background:#39ba7820}.amber{color:#ffd27c;background:#cc922322}
+.label,.detail{margin:0;color:var(--muted);font-size:12px}
+.value{margin:6px 0 2px;color:#f5f4fb;font-size:27px;font-weight:650;letter-spacing:-.7px}
+.detail{font-size:11px;color:#7f829a}

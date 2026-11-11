@@ -1,0 +1,95 @@
+{
+  "info": {
+    "_postman_id": "71e3219d-4c64-4efb-9506-ff5631aa2c62",
+    "name": "NEXORA API",
+    "description": "REST API requests for the NEXORA student workspace. Set base_url to the Express API URL and access_token to a Supabase Auth access token. Protected API routes verify the token with Supabase Auth and enforce RLS/record ownership.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "base_url", "value": "http://localhost:3001" },
+    { "key": "access_token", "value": "" },
+    { "key": "task_id", "value": "" },
+    { "key": "note_id", "value": "" }
+  ],
+  "item": [
+    {
+      "name": "Health",
+      "request": { "method": "GET", "url": "{{base_url}}/api/health" }
+    },
+    {
+      "name": "Authenticated account",
+      "request": { "method": "GET", "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }], "url": "{{base_url}}/api/me" }
+    },
+    {
+      "name": "Tasks",
+      "item": [
+        {
+          "name": "List tasks",
+          "request": { "method": "GET", "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }], "url": "{{base_url}}/api/tasks" }
+        },
+        {
+          "name": "Create task",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }, { "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"title\": \"Review lecture notes\",\n  \"description\": \"Summarize the key ideas\",\n  \"priority\": \"medium\",\n  \"category\": \"Biology\",\n  \"due_date\": null\n}" },
+            "url": "{{base_url}}/api/tasks"
+          }
+        },
+        {
+          "name": "Update task",
+          "request": {
+            "method": "PATCH",
+            "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }, { "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"status\": \"completed\"\n}" },
+            "url": "{{base_url}}/api/tasks/{{task_id}}"
+          }
+        },
+        {
+          "name": "Delete task",
+          "request": { "method": "DELETE", "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }], "url": "{{base_url}}/api/tasks/{{task_id}}" }
+        }
+      ]
+    },
+    {
+      "name": "Notes",
+      "item": [
+        {
+          "name": "List notes",
+          "request": { "method": "GET", "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }], "url": "{{base_url}}/api/notes" }
+        },
+        {
+          "name": "Create note",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }, { "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"title\": \"Research ideas\",\n  \"content\": \"Questions to explore next week.\",\n  \"category\": \"Research\",\n  \"is_pinned\": false\n}" },
+            "url": "{{base_url}}/api/notes"
+          }
+        },
+        {
+          "name": "Update note",
+          "request": {
+            "method": "PATCH",
+            "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }, { "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"is_pinned\": true\n}" },
+            "url": "{{base_url}}/api/notes/{{note_id}}"
+          }
+        },
+        {
+          "name": "Delete note",
+          "request": { "method": "DELETE", "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }], "url": "{{base_url}}/api/notes/{{note_id}}" }
+        }
+      ]
+    },
+    {
+      "name": "Validation — invalid task payload",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }, { "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"title\": \"\",\n  \"user_id\": \"must-not-be-accepted\"\n}" },
+        "url": "{{base_url}}/api/tasks"
+      }
+    }
+  ]
+}

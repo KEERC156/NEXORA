@@ -1,0 +1,10 @@
+.card{min-height:230px;padding:21px;border-radius:16px;border:1px solid var(--line);background:linear-gradient(150deg,#1b1d32,#141625);transition:transform .2s,border-color .2s;display:flex;flex-direction:column}
+.card:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--card-accent),transparent 42%)}
+.top,.bottom{display:flex;align-items:center;justify-content:space-between}
+.icon{display:grid;place-items:center;width:40px;height:40px;border-radius:12px;background:color-mix(in srgb,var(--card-accent),transparent 87%);font-size:20px}
+.bookmark{border:0;background:transparent;color:#81849c;padding:8px;cursor:pointer}.bookmark:hover,.saved{color:#b6a7ff}
+.category{margin-top:19px;color:var(--card-accent);font-size:10px;font-weight:700;letter-spacing:.11em;text-transform:uppercase}
+.card h3{margin:7px 0 5px;color:#f4f3fa;font-size:16px;letter-spacing:-.2px}
+.description{margin:0;color:#9799ac;font-size:12px;line-height:1.55}
+.bottom{margin-top:auto;padding-top:20px;color:#777a91;font-size:11px}
+.bottom span,.bottom a{display:flex;align-items:center;gap:6px}.bottom a{color:#c1b6ff;text-decoration:none}.bottom a:hover{color:#fff}
